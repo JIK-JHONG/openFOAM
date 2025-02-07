@@ -1,0 +1,39 @@
+#!/bin/sh
+cd "${0%/*}" || exit                                # Run from this directory
+. ${WM_PROJECT_DIR:?}/bin/tools/RunFunctions        # Tutorial run functions
+#------------------------------------------------------------------------------
+
+restore0Dir
+
+echo "Running blockMesh...(1/5)"
+runApplication blockMesh
+echo "blockMesh completed."
+
+echo "Running topoSet...(2/5)"
+runApplication topoSet
+echo "topoSet completed."
+
+echo "Running createPatch...(3/5)"
+runApplication createPatch -overwrite
+echo "createPatch completed."
+
+echo "Running setFields...(4/5)"
+runApplication setFields
+echo "setFields completed."
+
+echo "Running the main application...(5/5)"
+runApplication $(getApplication)
+echo "Application run completed."
+
+# Ask user if they want to open paraFoam
+echo -n "Do you want to open paraFoam? (Y/n): "
+read -r answer
+
+if [[ "$answer" =~ ^[Yy]$ ]]; then
+    echo "Opening paraFoam..."
+    paraFoam
+else
+    echo "Skipping paraFoam."
+fi
+
+#------------------------------------------------------------------------------
