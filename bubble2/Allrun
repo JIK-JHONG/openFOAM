@@ -1,0 +1,50 @@
+#!/bin/sh
+cd "${0%/*}" || exit                                # Run from this directory
+. ${WM_PROJECT_DIR:?}/bin/tools/RunFunctions        # Tutorial run functions
+#------------------------------------------------------------------------------
+
+#!/bin/bash
+
+restore0Dir
+
+echo "Running blockMesh...(1/7)"
+runApplication blockMesh || { echo "blockMesh failed"; exit 1; }
+echo "blockMesh completed."
+
+echo "Running topoSet...(2/7)"
+runApplication topoSet || { echo "topoSet failed"; exit 1; }
+echo "topoSet completed."
+
+echo "Running createPatch...(3/7)"
+runApplication createPatch -overwrite || { echo "createPatch failed"; exit 1; }
+echo "createPatch completed."
+
+rm log.topoSet
+echo "Running topoSet...(4/7)"
+runApplication topoSet || { echo "topoSet failed"; exit 1; }
+echo "topoSet completed."
+
+echo "Running subsetMesh...(5/7)"
+runApplication subsetMesh -overwrite overFlowWall -patch walls || { echo "subsetMesh failed"; exit 1; }
+echo "subsetMesh completed."
+
+echo "Running setFields...(6/7)"
+runApplication setFields || { echo "setFields failed"; exit 1; }
+echo "setFields completed."
+
+echo "Running the main application...(7/7)"
+runApplication $(getApplication) || { echo "Application run failed"; exit 1; }
+echo "Application run completed."
+
+# Ask user if they want to open paraFoam
+echo -n "Do you want to open paraFoam? (Y/n): "
+read -r answer
+
+if [[ "$answer" =~ ^[Yy]$ ]]; then
+    echo "Opening paraFoam..."
+    paraFoam
+else
+    echo "Skipping paraFoam."
+fi
+
+#------------------------------------------------------------------------------
