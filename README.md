@@ -1,6 +1,6 @@
 Simulation for 2 inlets of air in the tank.
-
-model 
+-
+1. model 
 
 //     4-----5      z+|
 //   7/|   6/|        |   
