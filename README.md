@@ -6,13 +6,13 @@ You can download from [OpenFOAM](https://www.openfoam.com) or download form [Git
 
 export FOAM_RUN=<Path>/openFOAM
 
-**It will be changed to <Path>
+**It will be changed to <Path>**
 
 # Copy the tutorials to your <floder_path>
 
 @floder_path
 
-cp -r $FOAM_TUTORIALS/<tutorials_path> .
+**cp -r $FOAM_TUTORIALS/<tutorials_path> .**
 
 
 # Complie & Run
