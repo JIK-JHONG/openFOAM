@@ -1,3 +1,20 @@
+# Install
+
+You can download from [OpenFOAM](https://www.openfoam.com) or download form [Github](https://github.com/gerlero/openfoam-app) which package as APP
+
+# Change the path for script (simulation project)
+
+export FOAM_RUN=<Path>/openFOAM
+
+**It will be changed to <Path>
+
+# Copy the tutorials to your <floder_path>
+
+@floder_path
+
+cp -r $FOAM_TUTORIALS/<tutorials_path> .
+
+
 # Complie & Run
 
 I have written the bash such as Allrun / Allclean to run the script.
