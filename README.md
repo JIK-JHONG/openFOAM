@@ -42,7 +42,7 @@ Simulation for 2 inlets of air in the tank.
 -
 1. model 
 
-!(Intro_Img_Grid)[https://github.com/JIK-JHONG/openFOAM/blob/main/Image_Intro_openFOAM_0.jpeg]
+![Intro_Img_Grid](https://github.com/JIK-JHONG/openFOAM/blob/main/Image_Intro_openFOAM_0.jpeg)
 
 //     4-----5      z+|
 //   7/|   6/|        |   
