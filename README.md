@@ -4,9 +4,9 @@ You can download from [OpenFOAM](https://www.openfoam.com) or download form [Git
 
 # Change the path for script (simulation project)
 
-export FOAM_RUN=<Path>/openFOAM
+export FOAM_RUN=<Your_Path>/openFOAM
 
-**It will be changed to <Path>**
+**It will be changed to <Your_Path>**
 
 # Copy the tutorials to your <floder_path>
 
