@@ -1,3 +1,26 @@
+# Complie & Run
+
+I have written the bash such as Allrun / Allclean to run the script.
+
+**MacOS**
+
+./Allrun 
+
+./Allclean
+
+# Review the Result
+
+You need to install the [paraView](https://www.paraview.org) first.
+
+brew 
+
+**brew install --cask paraview**
+
+run paraView for check results
+
+paraView
+
+
 Simulation for 2 inlets of air in the tank.
 -
 1. model 
